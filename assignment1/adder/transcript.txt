@@ -1,0 +1,243 @@
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/-3.snek
+(sub1 (sub1 (sub1 0)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/-3.run
+cargo run -- test/-3.snek test/-3.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.24s
+     Running `target/debug/adder test/-3.snek test/-3.s`
+nasm -f elf64 test/-3.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/-3.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/-3.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 0
+sub rax, 1
+sub rax, 1
+sub rax, 1
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/-3.run
+-3
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/-30.snek
+(add1 (sub1 (negate 30)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/-30.run
+cargo run -- test/-30.snek test/-30.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.15s
+     Running `target/debug/adder test/-30.snek test/-30.s`
+nasm -f elf64 test/-30.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/-30.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/-30.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 30
+neg rax
+sub rax, 1
+add rax, 1
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/-30.run
+-30
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/-72.snek
+(negate (sub1 (sub1 (add1 73))))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/-72.run
+cargo run -- test/-72.snek test/-72.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.16s
+     Running `target/debug/adder test/-72.snek test/-72.s`
+nasm -f elf64 test/-72.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/-72.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/-72.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 73
+add rax, 1
+sub rax, 1
+sub rax, 1
+neg rax
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/-72.run
+-72
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/0.snek
+(add1 (add1 (add1 -3)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/0.run
+cargo run -- test/0.snek test/0.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.22s
+     Running `target/debug/adder test/0.snek test/0.s`
+nasm -f elf64 test/0.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/0.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/0.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, -3
+add rax, 1
+add rax, 1
+add rax, 1
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/0.run
+0
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/10.snek
+(negate (negate (negate (negate 10))))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/10.run
+cargo run -- test/10.snek test/10.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.25s
+     Running `target/debug/adder test/10.snek test/10.s`
+nasm -f elf64 test/10.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/10.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/10.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 10
+neg rax
+neg rax
+neg rax
+neg rax
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/10.run
+10
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/30.snek
+(negate (sub1 (negate (sub1 30))))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/30.run
+cargo run -- test/30.snek test/30.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.22s
+     Running `target/debug/adder test/30.snek test/30.s`
+nasm -f elf64 test/30.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/30.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/30.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 30
+sub rax, 1
+neg rax
+sub rax, 1
+neg rax
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/30.run
+30
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/72.snek
+(sub1 (sub1 (add1 73)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/72.run
+cargo run -- test/72.snek test/72.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.19s
+     Running `target/debug/adder test/72.snek test/72.s`
+nasm -f elf64 test/72.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/72.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/72.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 73
+add rax, 1
+sub rax, 1
+sub rax, 1
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/72.run
+72
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/80.snek
+(sub1( add1( add1( negate( sub1( sub1( sub1( negate( sub1( add1 (add1 (add1 (add1 73)))))))))))))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/80.run
+cargo run -- test/80.snek test/80.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.20s
+     Running `target/debug/adder test/80.snek test/80.s`
+nasm -f elf64 test/80.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/80.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/80.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 73
+add rax, 1
+add rax, 1
+add rax, 1
+add rax, 1
+sub rax, 1
+neg rax
+sub rax, 1
+sub rax, 1
+sub rax, 1
+neg rax
+add rax, 1
+add rax, 1
+sub rax, 1
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/80.run
+80
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/100.snek
+100
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/100.run
+cargo run -- test/100.snek test/100.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.18s
+     Running `target/debug/adder test/100.snek test/100.s`
+nasm -f elf64 test/100.s -o runtime/our_code.o
+ar rcs runtime/libour_code.a runtime/our_code.o
+rustc -L runtime/ runtime/start.rs -o test/100.run
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/100.s
+
+section .text
+global our_code_starts_here
+our_code_starts_here:
+  mov rax, 100
+  ret
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ test/100.run
+100
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/invalid_brackets.snek
+((negate (add1 (sub1 0)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/invalid_brackets.run
+cargo run -- test/invalid_brackets.snek test/invalid_brackets.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.17s
+     Running `target/debug/adder test/invalid_brackets.snek test/invalid_brackets.s`
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: 2:0: unexpected eof', src/main.rs:50:48
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+make: *** [Makefile:2: test/invalid_brackets.s] Error 101
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/invalid_brackets.s
+cat: test/invalid_brackets.s: No such file or directory
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/invalid_number.snek
+(negate (add1 (sub1 a)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/invalid_number.run
+cargo run -- test/invalid_number.snek test/invalid_number.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.21s
+     Running `target/debug/adder test/invalid_number.snek test/invalid_number.s`
+thread 'main' panicked at 'parse error', src/main.rs:26:14
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+make: *** [Makefile:2: test/invalid_number.s] Error 101
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/invalid_number.s
+cat: test/invalid_number.s: No such file or directory
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/invalid_operand.snek
+(negate (random (sub1 0)))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/invalid_operand.run
+cargo run -- test/invalid_operand.snek test/invalid_operand.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.18s
+     Running `target/debug/adder test/invalid_operand.snek test/invalid_operand.s`
+thread 'main' panicked at 'parse error', src/main.rs:23:22
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+make: *** [Makefile:2: test/invalid_operand.s] Error 101
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/invalid_operand.s
+cat: test/invalid_operand.s: No such file or directory
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/no_brackets.snek
+sub1 (negate (add1 0))
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ make test/no_brackets.run
+cargo run -- test/no_brackets.snek test/no_brackets.s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.18s
+     Running `target/debug/adder test/no_brackets.snek test/no_brackets.s`
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: 1:5: unrecognized post-s-expression data', src/main.rs:50:48
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+make: *** [Makefile:2: test/no_brackets.s] Error 101
+yatharthvyas@Yatharth-Alienware:/mnt/c/Users/yatha/OneDrive/Desktop/UCSD/cse231/assignment1/adder$ cat test/no_brackets.s
+cat: test/no_brackets.s: No such file or directory
